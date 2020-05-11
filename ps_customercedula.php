@@ -82,7 +82,12 @@ class ps_customercedula extends Module
     protected function alterCustomerTable()
     {
         $sql = 'ALTER TABLE `' . pSQL(_DB_PREFIX_) . 'customer` ADD `cedula` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL';
-        return Db::getInstance()->execute($sql);
+        // CLEAN_INSTALATION 1/2  (if you want to delete all data after an installation)
+        // comment:
+        Db::getInstance()->execute($sql);
+        return true;
+        // and uncomment:
+        // return Db::getInstance()->execute($sql);
     }
 
     /**
@@ -92,8 +97,13 @@ class ps_customercedula extends Module
      */
     private function uninstallAlterCustomerTable()
     {
-        $sql = 'ALTER TABLE `' . pSQL(_DB_PREFIX_) . 'customer` DROP `cedula`';
-        return Db::getInstance()->execute($sql);
+        // CLEAN_INSTALATION 2/2 (if you want to delete all data after an installation)
+        // uncomment:
+        // $sql = 'ALTER TABLE `' . pSQL(_DB_PREFIX_) . 'customer` DROP `cedula`';
+        // return Db::getInstance()->execute($sql);
+        // 
+        // and comment:
+        return true;
     }
 
 
