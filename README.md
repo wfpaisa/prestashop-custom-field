@@ -5,3 +5,6 @@
 
 Warning: this create/delete the field `cedula` in the `customer` table. 
 
+Thanks to
+- https://github.com/friends-of-presta/demo-cqrs-hooks-usage-module
+- https://github.com/frederic-benoist/fbsample-extracustomerfield
