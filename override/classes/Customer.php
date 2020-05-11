@@ -1,20 +1,25 @@
 <?php
-
 use PrestaShop\PrestaShop\Adapter\ServiceLocator;
 use PrestaShop\PrestaShop\Adapter\CoreException;
-
 /***
  * Class CustomerCore
  */
 class Customer extends CustomerCore
 {
-
-
+    /*
+    * module: ps_customercedula
+    * date: 2020-05-11 15:49:55
+    * version: 1.0.0
+    */
     public $cedula;
-
     /**
      * @see ObjectModel::$definition
      */
+    /*
+    * module: ps_customercedula
+    * date: 2020-05-11 15:49:55
+    * version: 1.0.0
+    */
     public static $definition = array(
         'table' => 'customer',
         'primary' => 'id_customer',
@@ -22,7 +27,7 @@ class Customer extends CustomerCore
             'secure_key' => array('type' => self::TYPE_STRING, 'validate' => 'isMd5', 'copy_post' => false),
             'lastname' => array('type' => self::TYPE_STRING, 'validate' => 'isName', 'required' => true, 'size' => 255),
             'firstname' => array('type' => self::TYPE_STRING, 'validate' => 'isName', 'required' => true, 'size' => 255),
-            'cedula' => array('type' => self::TYPE_STRING, 'required' => true, 'size' => 255),
+            'cedula' => array('type' => self::TYPE_STRING, 'validate' => 'isGenericName'),
             'email' => array('type' => self::TYPE_STRING, 'validate' => 'isEmail', 'required' => true, 'size' => 128),
             'passwd' => array('type' => self::TYPE_STRING, 'validate' => 'isPasswd', 'required' => true, 'size' => 60),
             'last_passwd_gen' => array('type' => self::TYPE_STRING, 'copy_post' => false),
